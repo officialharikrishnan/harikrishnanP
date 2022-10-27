@@ -219,14 +219,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<form  id="submit-form" action="">
 					<div class="row contact_top">
 						<div class="col-sm-6">
-							<input type="text" name="First name" placeholder="First name" id="contact-name" onkeyup="validateName()"  >
+							<input type="text" name="First name" placeholder="First name" id="contact-name" oninput="validateName()"  >
 							<span id="name-error"></span>
 						</div>
 						<div class="col-sm-6">
 							<input type="text" name="Last name" placeholder="Second name (Optional)" id="contact-name" >
 						</div>
 					</div>	
-						<input type="text" name="Email" placeholder="Email" id="contact-email" onkeyup="validateEmail()"  >
+						<input type="text" name="Email" placeholder="Email" id="contact-email" onblur="validateEmail()"  >
 						<span id="email-error"></span>
 						<textarea name="Message" placeholder="Message..." id="contact-message"></textarea>
 						<span id="message-error"></span>
