@@ -1,6 +1,5 @@
 var nameError = document.getElementById('name-error');
 var emailError = document.getElementById('email-error');
-var messageError = document.getElementById('message-error');
 var submitError = document.getElementById('submit-error');
 
 function validateName(){
@@ -32,18 +31,6 @@ function validateEmail(){
     emailError.innerHTML='<i class="fa fa-check" aria-hidden="true"></i>';
     return true;
 }
-function validateMessage(){
-    var message=document.getElementById('contact-message').value;
-    if(message.length == 0){
-        var size=30;
-        var balanceSize=size-message.length;
-        // if(balanceSize>0){
-        messageError.innerHTML= balanceSize + 'more character required';
-        return false;
-        // }
-    }
-    return true;
-}
 function validateForm(){
     if(!validateName() || !validateEmail() ){
         submitError.innerHTML='need to fill details';
@@ -59,3 +46,21 @@ function clearForm(){
     emailError.innerHTML='';
     messageError.innerHTML='';
 }
+
+$("#submit-form").submit((e)=>{
+    e.preventDefault()
+    $.ajax({
+        url:"https://script.google.com/macros/s/AKfycbxyiZlquNQaDyO-7T9mh9RS24vgkf3tNGSNaWqmtqaCihO-5avzXFyIF2hrcLr2zBdB/exec",
+        data:$("#submit-form").serialize(),
+        method:"post",
+        success:function (response){
+            alert("Form submitted successfully")
+            window.location.reload()
+            //window.location.href="https://google.com"
+        },
+        error:function (err){
+            alert("Something Error")
+
+        }
+    })
+})
