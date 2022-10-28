@@ -497,12 +497,12 @@ p.subs {
     color: #3e3e3e;
 }
 .about{
-    margin-top: 15%;
+    margin-top: 13%;
 }
 @media screen and (min-width:768px) {
     
     p.ex1{
-        margin-left: 37%;
+        margin-left: 36%;
         max-width: 400px;
     }
 }
@@ -807,10 +807,16 @@ label {
 #email-error{
     color: rgb(255, 47, 47);
 }
-#message-error{
+#phone-error{
     color: rgb(255, 47, 47);
 }
+#phone-error i{
+    color: rgb(0, 177, 3);
+}
 #email-error i{
+    color: rgb(0, 177, 3);
+}
+#name-error i{
     color: rgb(0, 177, 3);
 }
 #submit-error{

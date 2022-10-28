@@ -1,5 +1,6 @@
 var nameError = document.getElementById('name-error');
 var emailError = document.getElementById('email-error');
+var phoneError = document.getElementById('phone-error')
 var submitError = document.getElementById('submit-error');
 
 function validateName(){
@@ -31,9 +32,28 @@ function validateEmail(){
     emailError.innerHTML='<i class="fa fa-check" aria-hidden="true"></i>';
     return true;
 }
+function validatePhone(){
+    var phone = document.getElementById("contact-phone").value;
+
+    if(phone.length==0){
+        phoneError.innerHTML = 'Phone number is required'
+        return false;
+    }else if(phone.length<10 || phone.length>10){
+        phoneError.innerHTML = 'Phone number must be 10 digits'
+    }else if(phone.match(/^[0-9]{10}$/)){
+        phoneError.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>'
+        return true
+    }
+
+}
 function validateForm(){
-    if(!validateName() || !validateEmail() ){
+    if(!validateName() || !validateEmail() || !validatePhone()){
+        submitError.style.display = 'block';
         submitError.innerHTML='need to fill details';
+        setTimeout(function()
+        {
+            submitError.style.display = 'none';
+        },3000)
         console.log("err");
         return false;
     }else{
@@ -41,10 +61,12 @@ function validateForm(){
     }
 
 }
+
 function clearForm(){
     nameError.innerHTML='';
     emailError.innerHTML='';
-    messageError.innerHTML='';
+    submitError.innerHTML='';
+    phoneError.innerHTML='';
 }
 
 $("#submit-form").submit((e)=>{
